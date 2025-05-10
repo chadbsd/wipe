@@ -100,6 +100,7 @@ size_parse(const char *str)
 	}
 
 	switch (tolower(end[0])) {
+	case 0:
 	case 'b':
 		return val;
 	case 'k':
