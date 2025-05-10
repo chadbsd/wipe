@@ -23,6 +23,7 @@ main(int argc, char *argv[])
 	ssize_t written;
 	unsigned char *block, randbuf[56];
 
+	bs = 512;
 	while ((opt = getopt(argc, argv, "b:")) != -1) {
 		switch (opt) {
 		case 'b':
@@ -111,6 +112,8 @@ size_parse(const char *str)
 		errx(1, "block size too big wtf");
 	case '.':
 		errx(1, "no fractions allowed in size srry");
+	default:
+		errx(1, "unknown character in size");
 	}
 
 	return val;
